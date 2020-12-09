@@ -1,0 +1,20 @@
+app:
+  run-mode: debug
+  page-size: 12
+  jwt-secret: 234*&(345*@#4
+  password-prefix: 456%^^&*
+host:
+  port: 8080
+  read-timeout: 60
+  write-timeout: 60
+
+db:
+  db-type: mysql
+  write-db-name: ma_cms
+  write-db-user: root
+  write-db-password: Hzz880719
+  write-db-host: 127.0.0.1:3306
+  read-db-name: ma_cms
+  read-db-user: root
+  read-db-password: Hzz880719
+  read-db-host: 127.0.0.1:3306
