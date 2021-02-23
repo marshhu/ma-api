@@ -1,5 +1,33 @@
+definitions:
+  ao.LoginAo:
+    properties:
+      nameName:
+        type: string
+      password:
+        type: string
+    type: object
 info:
   contact: {}
   license: {}
-paths: {}
+paths:
+  /user/login:
+    post:
+      consumes:
+      - application/json
+      description: login
+      parameters:
+      - description: ' '
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/ao.LoginAo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+      summary: 登录
+      tags:
+      - user
 swagger: "2.0"

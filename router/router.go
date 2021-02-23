@@ -1,12 +1,14 @@
 package router
 
 import (
+	"path/filepath"
+
 	"github.com/gin-gonic/gin"
 	"github.com/marshhu/ma-api/docs"
-	"github.com/marshhu/ma-api/infrastructure/utils"
+	"github.com/marshhu/ma-api/interface/controller"
+	"github.com/marshhu/ma-frame/utils"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
-	"path/filepath"
 )
 
 // Register 向 Gin 注册业务路由
@@ -46,11 +48,11 @@ func swaggerRouter(eng *gin.Engine) {
 
 //业务路由
 func bizRouter(eng *gin.Engine) {
-	//apiV1 := eng.Group("/api/v1")
+	apiV1 := eng.Group("/api/v1")
 
 	//users
-	//rg := apiV1.Group("")
-	//{
-	//	rg.GET("/user-info", ctrlFactory.UserCtrl.GetUserInfo)
-	//}
+	rg := apiV1.Group("")
+	{
+		rg.POST("/user/login", controller.Login())
+	}
 }
