@@ -2,6 +2,7 @@ package ao
 
 import "github.com/marshhu/ma-frame/utils"
 
+//登录实体
 type LoginAo struct {
 	UserName string `json:"nameName"`
 	Password string `json:"password"`

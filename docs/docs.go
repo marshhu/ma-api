@@ -55,12 +55,57 @@ var doc = `{
                     }
                 }
             }
+        },
+        "/user/register": {
+            "post": {
+                "description": "register",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "user"
+                ],
+                "summary": "注册",
+                "parameters": [
+                    {
+                        "description": " ",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ao.RegisterAo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok"
+                    }
+                }
+            }
         }
     },
     "definitions": {
         "ao.LoginAo": {
             "type": "object",
             "properties": {
+                "nameName": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "ao.RegisterAo": {
+            "type": "object",
+            "properties": {
+                "confirmPassword": {
+                    "type": "string"
+                },
                 "nameName": {
                     "type": "string"
                 },

@@ -6,6 +6,15 @@ definitions:
       password:
         type: string
     type: object
+  ao.RegisterAo:
+    properties:
+      confirmPassword:
+        type: string
+      nameName:
+        type: string
+      password:
+        type: string
+    type: object
 info:
   contact: {}
   license: {}
@@ -28,6 +37,26 @@ paths:
         "200":
           description: ok
       summary: 登录
+      tags:
+      - user
+  /user/register:
+    post:
+      consumes:
+      - application/json
+      description: register
+      parameters:
+      - description: ' '
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/ao.RegisterAo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+      summary: 注册
       tags:
       - user
 swagger: "2.0"

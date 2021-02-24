@@ -1,14 +1,20 @@
 package main
 
 import (
-	"github.com/marshhu/ma-api/interface/ioc"
+	"github.com/marshhu/ma-api/config"
 	"github.com/marshhu/ma-api/router"
+	"github.com/marshhu/ma-api/src/interface/ioc"
 	"github.com/marshhu/ma-frame/app"
 	"github.com/marshhu/ma-frame/orm"
+	"github.com/spf13/viper"
 )
 
 func main() {
-	app := app.NewApp(8081)
+	config.Init()
+	app := app.NewApp(app.AppConfig{
+		HostPort:     viper.GetInt("app.hostPort"),
+		ReadTimeout:  viper.GetInt("app.readTimeout"),
+		WriteTimeout: viper.GetInt("app.writeTimeout")})
 	app.RegisterRouter(router.Register())
 	initDb()
 	ioc.InitIoc()
@@ -18,15 +24,15 @@ func main() {
 //初始化数据库
 func initDb() {
 	var config = orm.DbSettings{
-		Dialect:         "mysql",
-		DbName:          "ma_db",
-		Host:            "127.0.0.1",
-		User:            "root",
-		Password:        "123456",
-		Port:            3306,
-		MaxIdleConns:    5,
-		MaxOpenConns:    20,
-		ConnMaxLifetime: 5,
+		Dialect:         viper.GetString("db.dialect"),
+		DbName:          viper.GetString("db.dbName"),
+		Host:            viper.GetString("db.host"),
+		User:            viper.GetString("db.user"),
+		Password:        viper.GetString("db.password"),
+		Port:            viper.GetInt("db.port"),
+		MaxIdleConns:    viper.GetInt("db.maxIdleConns"),
+		MaxOpenConns:    viper.GetInt("db.maxOpenConns"),
+		ConnMaxLifetime: viper.GetInt("db.connMaxLifetime"),
 	}
 	orm.Init(&config)
 }

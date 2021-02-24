@@ -2,7 +2,7 @@ package ioc
 
 import (
 	"github.com/facebookgo/inject"
-	userAppSrv "github.com/marshhu/ma-api/application/user/service"
+	userAppSrv "github.com/marshhu/ma-api/src/application/user/service"
 )
 
 // DIContainer

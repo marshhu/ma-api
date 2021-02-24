@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/marshhu/ma-api/docs"
-	"github.com/marshhu/ma-api/interface/controller"
+	"github.com/marshhu/ma-api/src/interface/controller"
 	"github.com/marshhu/ma-frame/utils"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -54,5 +54,6 @@ func bizRouter(eng *gin.Engine) {
 	rg := apiV1.Group("")
 	{
 		rg.POST("/user/login", controller.Login())
+		rg.POST("/user/register", controller.Register())
 	}
 }

@@ -2,9 +2,9 @@ package ioc
 
 import (
 	"github.com/facebookgo/inject"
-	userAppSrv "github.com/marshhu/ma-api/application/user/service"
-	userRepo "github.com/marshhu/ma-api/domain/user/repository"
-	userDomainSrv "github.com/marshhu/ma-api/domain/user/service"
+	userAppSrv "github.com/marshhu/ma-api/src/application/user/service"
+	userRepo "github.com/marshhu/ma-api/src/domain/user/repository"
+	userDomainSrv "github.com/marshhu/ma-api/src/domain/user/service"
 )
 
 //User

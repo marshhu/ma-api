@@ -1,14 +1,26 @@
 package repository
 
 import (
-	"github.com/marshhu/ma-api/domain/user/do"
-	"github.com/marshhu/ma-api/domain/user/entity"
+	"github.com/marshhu/ma-api/src/domain/user/do"
+	"github.com/marshhu/ma-api/src/domain/user/entity"
 	"github.com/marshhu/ma-frame/orm"
 	"github.com/marshhu/ma-frame/utils"
 )
 
 //用户读仓储实现
 type UserQuery struct {
+}
+
+func (q *UserQuery) GetById(id int64) *do.UserDo {
+	var user entity.User
+	db := orm.NewQuery()
+	err := db.Model(&entity.User{}).Where("id = ?", id).First(&user).Error
+	if err != nil {
+		return nil
+	}
+	var result do.UserDo
+	utils.MapTo(&user, &result)
+	return &result
 }
 
 func (q *UserQuery) Get(username string, password string) *do.UserDo {
