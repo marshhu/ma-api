@@ -3,6 +3,7 @@ app:
    readTimeout: 60
    writeTimeout: 60
 
+
 db:
   dialect: mysql
   dbName: ma_db
@@ -13,3 +14,4 @@ db:
   maxIdleConns: 5
   maxOpenConns: 20
   connMaxLifetime: 5
+
