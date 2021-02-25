@@ -37,6 +37,40 @@
             }
         },
         "/bill": {
+            "get": {
+                "description": "add bill",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "bill"
+                ],
+                "summary": "获取账单列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "limit",
+                        "name": "limit",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "offset",
+                        "name": "offset",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok"
+                    }
+                }
+            },
             "post": {
                 "description": "add bill",
                 "consumes": [

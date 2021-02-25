@@ -57,6 +57,8 @@ func bizRouter(eng *gin.Engine) {
 	jwtRg := apiV1.Group("", AuthMiddleware())
 	{
 		jwtRg.POST("/user/register", controller.Register())
+
+		jwtRg.GET("/bill", controller.GetBillByUser())
 		jwtRg.POST("/bill", controller.AddBill())
 	}
 }
