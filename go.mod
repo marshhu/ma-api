@@ -18,7 +18,7 @@ require (
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.4 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/marshhu/ma-frame v0.0.0-20210224065559-eed6e9605afc
+	github.com/marshhu/ma-frame v0.0.0-20210225021928-923bab454bab
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/pelletier/go-toml v1.8.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect

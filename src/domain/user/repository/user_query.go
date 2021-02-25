@@ -14,7 +14,7 @@ type UserQuery struct {
 func (q *UserQuery) GetById(id int64) *do.UserDo {
 	var user entity.User
 	db := orm.NewQuery()
-	err := db.Model(&entity.User{}).Where("id = ?", id).First(&user).Error
+	err := db.First(&user, id).Error
 	if err != nil {
 		return nil
 	}

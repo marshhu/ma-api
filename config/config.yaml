@@ -3,7 +3,6 @@ app:
    readTimeout: 60
    writeTimeout: 60
 
-
 db:
   dialect: mysql
   dbName: ma_db

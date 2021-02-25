@@ -25,6 +25,37 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/bill": {
+            "post": {
+                "description": "add bill",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "bill"
+                ],
+                "summary": "新增账单",
+                "parameters": [
+                    {
+                        "description": " ",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ao.AddBillAo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok"
+                    }
+                }
+            }
+        },
         "/user/login": {
             "post": {
                 "description": "login",
@@ -89,6 +120,26 @@ var doc = `{
         }
     },
     "definitions": {
+        "ao.AddBillAo": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number"
+                },
+                "billDate": {
+                    "type": "string"
+                },
+                "createBy": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
         "ao.LoginAo": {
             "type": "object",
             "properties": {

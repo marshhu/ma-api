@@ -48,12 +48,9 @@ func swaggerRouter(eng *gin.Engine) {
 
 //业务路由
 func bizRouter(eng *gin.Engine) {
-	apiV1 := eng.Group("/api/v1")
+	rg := eng.Group("/api/v1")
+	rg.POST("/user/login", controller.Login())
+	rg.POST("/user/register", controller.Register())
 
-	//users
-	rg := apiV1.Group("")
-	{
-		rg.POST("/user/login", controller.Login())
-		rg.POST("/user/register", controller.Register())
-	}
+	rg.POST("/bill", controller.AddBill())
 }

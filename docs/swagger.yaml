@@ -1,4 +1,17 @@
 definitions:
+  ao.AddBillAo:
+    properties:
+      amount:
+        type: number
+      billDate:
+        type: string
+      createBy:
+        type: string
+      description:
+        type: string
+      type:
+        type: integer
+    type: object
   ao.LoginAo:
     properties:
       nameName:
@@ -19,6 +32,26 @@ info:
   contact: {}
   license: {}
 paths:
+  /bill:
+    post:
+      consumes:
+      - application/json
+      description: add bill
+      parameters:
+      - description: ' '
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/ao.AddBillAo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+      summary: 新增账单
+      tags:
+      - bill
   /user/login:
     post:
       consumes:

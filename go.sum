@@ -251,6 +251,8 @@ github.com/marshhu/ma-frame v0.0.0-20210224024257-fa481a7d0548 h1:cN5jvqql7AYa1i
 github.com/marshhu/ma-frame v0.0.0-20210224024257-fa481a7d0548/go.mod h1:K3rKnHadK9jaTcEbkIEc94LUrRDRa+irIUsRevgguZ4=
 github.com/marshhu/ma-frame v0.0.0-20210224065559-eed6e9605afc h1:29AmjJg+p8zJd7ELoRyUYOzo0UVNAXls5PhujL2OvPY=
 github.com/marshhu/ma-frame v0.0.0-20210224065559-eed6e9605afc/go.mod h1:wkACnIBEfY2Y0sR/H9GuvsbAg1a7cotJzQ63CyvZOUg=
+github.com/marshhu/ma-frame v0.0.0-20210225021928-923bab454bab h1:4u7qRz8nm1M+3kReV+R+6H2Ibb8kGfzwgGwNYdPbi4M=
+github.com/marshhu/ma-frame v0.0.0-20210225021928-923bab454bab/go.mod h1:wkACnIBEfY2Y0sR/H9GuvsbAg1a7cotJzQ63CyvZOUg=
 github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
 github.com/mattn/go-isatty v0.0.3/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
 github.com/mattn/go-isatty v0.0.4/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
