@@ -27,8 +27,12 @@ func AddBill() gin.HandlerFunc {
 			api.BadRequestError(msg, ctx)
 			return
 		}
-
-		id, err := ioc.DIContainer.BillAppService.Add(input)
+		user := api.GetUserInfo(ctx)
+		if user.UserId <= 0 {
+			api.Unauthorized("获取用户信息失败，请登录", ctx)
+			return
+		}
+		id, err := ioc.DIContainer.BillAppService.Add(input, user.UserName)
 		if err != nil {
 			api.InternalServerError("添加账单失败", ctx)
 		}

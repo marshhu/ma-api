@@ -10,7 +10,6 @@ type AddBillAo struct {
 	Amount      float64 `json:"amount"`
 	Description string  `json:"description"`
 	BillDate    string  `json:"billDate"`
-	CreateBy    string  `json:"createBy"`
 }
 
 func (input *AddBillAo) Validate() (string, bool) {

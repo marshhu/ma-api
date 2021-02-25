@@ -5,8 +5,6 @@ definitions:
         type: number
       billDate:
         type: string
-      createBy:
-        type: string
       description:
         type: string
       type:
@@ -32,6 +30,26 @@ info:
   contact: {}
   license: {}
 paths:
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: login
+      parameters:
+      - description: ' '
+        in: body
+        name: input
+        required: true
+        schema:
+          $ref: '#/definitions/ao.LoginAo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+      summary: 登录
+      tags:
+      - auth
   /bill:
     post:
       consumes:
@@ -52,26 +70,6 @@ paths:
       summary: 新增账单
       tags:
       - bill
-  /user/login:
-    post:
-      consumes:
-      - application/json
-      description: login
-      parameters:
-      - description: ' '
-        in: body
-        name: input
-        required: true
-        schema:
-          $ref: '#/definitions/ao.LoginAo'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: ok
-      summary: 登录
-      tags:
-      - user
   /user/register:
     post:
       consumes:

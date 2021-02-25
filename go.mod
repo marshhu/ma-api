@@ -3,8 +3,10 @@ module github.com/marshhu/ma-api
 go 1.15
 
 require (
+	git.code.oa.com/fip-team/rasse v1.2.11 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
 	github.com/denisenkom/go-mssqldb v0.9.0 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/facebookgo/inject v0.0.0-20180706035515-f23751cae28b
 	github.com/facebookgo/structtag v0.0.0-20150214074306-217e25fb9691 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect

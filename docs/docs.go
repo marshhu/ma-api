@@ -25,6 +25,37 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
+        "/auth/login": {
+            "post": {
+                "description": "login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "auth"
+                ],
+                "summary": "登录",
+                "parameters": [
+                    {
+                        "description": " ",
+                        "name": "input",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ao.LoginAo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok"
+                    }
+                }
+            }
+        },
         "/bill": {
             "post": {
                 "description": "add bill",
@@ -46,37 +77,6 @@ var doc = `{
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/ao.AddBillAo"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "ok"
-                    }
-                }
-            }
-        },
-        "/user/login": {
-            "post": {
-                "description": "login",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "user"
-                ],
-                "summary": "登录",
-                "parameters": [
-                    {
-                        "description": " ",
-                        "name": "input",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/ao.LoginAo"
                         }
                     }
                 ],
@@ -127,9 +127,6 @@ var doc = `{
                     "type": "number"
                 },
                 "billDate": {
-                    "type": "string"
-                },
-                "createBy": {
                     "type": "string"
                 },
                 "description": {

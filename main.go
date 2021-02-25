@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/marshhu/ma-api/router"
 	"github.com/marshhu/ma-api/src/interface/ioc"
+	"github.com/marshhu/ma-api/src/router"
 	"github.com/marshhu/ma-frame/app"
 	"github.com/marshhu/ma-frame/config"
 	"github.com/marshhu/ma-frame/orm"
@@ -30,7 +30,7 @@ func main() {
 //初始化配置文件
 func initConfig() {
 	defaultCfgName := "config"
-	defaultCfgEnv := ""
+	defaultCfgEnv := "debug"
 	defaultCfgType := "yaml"
 
 	cfgName := strings.TrimSpace(os.Getenv("CFG_FILE"))

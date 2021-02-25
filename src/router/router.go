@@ -3,6 +3,8 @@ package router
 import (
 	"path/filepath"
 
+	"github.com/spf13/viper"
+
 	"github.com/gin-gonic/gin"
 	"github.com/marshhu/ma-api/docs"
 	"github.com/marshhu/ma-api/src/interface/controller"
@@ -25,15 +27,16 @@ func Register() func(rg *gin.Engine) error {
 		staticRouter(rg)
 		swaggerRouter(rg)
 		bizRouter(rg)
+		gin.SetMode(viper.GetString("app.runMode"))
 		return nil
 	}
 }
 
 // 静态资源
 func staticRouter(eng *gin.Engine) {
-	staticGroup := eng.Group("/static")
+	staticGroup := eng.Group("/assets")
 	rootDir := utils.RootDir()
-	staticGroup.Static("", filepath.Join(rootDir, "assets"))
+	staticGroup.Static("", filepath.Join(rootDir, "static"))
 }
 
 //swagger
@@ -48,9 +51,12 @@ func swaggerRouter(eng *gin.Engine) {
 
 //业务路由
 func bizRouter(eng *gin.Engine) {
-	rg := eng.Group("/api/v1")
-	rg.POST("/user/login", controller.Login())
-	rg.POST("/user/register", controller.Register())
+	apiV1 := eng.Group("/api/v1")
+	apiV1.POST("/auth/login", controller.Login())
 
-	rg.POST("/bill", controller.AddBill())
+	jwtRg := apiV1.Group("", AuthMiddleware())
+	{
+		jwtRg.POST("/user/register", controller.Register())
+		jwtRg.POST("/bill", controller.AddBill())
+	}
 }

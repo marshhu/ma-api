@@ -1,0 +1,21 @@
+app:
+   hostPort: 8081
+   readTimeout: 60
+   writeTimeout: 60
+   runMode: release
+   
+db:
+  dialect: mysql
+  dbName: ma_db
+  host: 127.0.0.1
+  user: root
+  password: 123456
+  port: 3306
+  maxIdleConns: 5
+  maxOpenConns: 20
+  connMaxLifetime: 5
+
+jwt:
+  secret: 3*&^HO*(^&987
+  expireTime: 3600
+

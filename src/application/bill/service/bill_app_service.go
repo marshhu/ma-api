@@ -14,7 +14,7 @@ type BillAppService struct {
 	BillDomainService billDomainSrv.IBillDomainService `inject:"BillDomainService"`
 }
 
-func (s *BillAppService) Add(bill ao.AddBillAo) (id int64, err error) {
+func (s *BillAppService) Add(bill ao.AddBillAo, userName string) (id int64, err error) {
 	billEnt := entity.Bill{
 		Amount:      bill.Amount,
 		Type:        bill.Type,
@@ -22,7 +22,7 @@ func (s *BillAppService) Add(bill ao.AddBillAo) (id int64, err error) {
 		BillDate:    utils.ToTime(bill.BillDate, utils.DATE_LAYOUT),
 		CreateTime:  time.Now(),
 		UpdateTime:  time.Now(),
-		CreateBy:    bill.CreateBy,
+		CreateBy:    userName,
 	}
 	return s.BillDomainService.Add(billEnt)
 }

@@ -2,6 +2,7 @@ app:
    hostPort: 8081
    readTimeout: 60
    writeTimeout: 60
+   runMode: debug
 
 db:
   dialect: mysql
@@ -14,3 +15,10 @@ db:
   maxOpenConns: 20
   connMaxLifetime: 5
 
+jwt:
+  secret: 3*&^HO*(^&987
+  expireTime: 3600
+
+test:
+  userId: 1
+  userName: admin
