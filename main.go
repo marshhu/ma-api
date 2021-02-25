@@ -30,7 +30,7 @@ func main() {
 //初始化配置文件
 func initConfig() {
 	defaultCfgName := "config"
-	defaultCfgEnv := "debug"
+	defaultCfgEnv := "debug" //调试
 	defaultCfgType := "yaml"
 
 	cfgName := strings.TrimSpace(os.Getenv("CFG_FILE"))

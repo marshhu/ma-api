@@ -31,6 +31,6 @@ func (q *BillQuery) GetByUser(userName string, limit int, offset int) (total int
 		return 0, nil
 	}
 	utils.MapTo(&bills, &list)
-	db.Model(&entity.Bill{}).Count(&total)
+	db.Model(&entity.Bill{}).Where("create_by = ?", userName).Count(&total)
 	return total, list
 }

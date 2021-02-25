@@ -51,6 +51,29 @@ paths:
       tags:
       - auth
   /bill:
+    get:
+      consumes:
+      - application/json
+      description: add bill
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - description: offset
+        in: query
+        name: offset
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: ok
+      summary: 获取账单列表
+      tags:
+      - bill
     post:
       consumes:
       - application/json
