@@ -5,6 +5,7 @@ import (
 	"github.com/marshhu/ma-api/src/application/bill/ao"
 	"github.com/marshhu/ma-api/src/interface/api"
 	"github.com/marshhu/ma-api/src/interface/ioc"
+	"github.com/marshhu/ma-frame/log"
 	"github.com/marshhu/ma-frame/utils"
 )
 
@@ -35,6 +36,7 @@ func AddBill() gin.HandlerFunc {
 		}
 		id, err := ioc.DIContainer.BillAppService.Add(input, user.UserName)
 		if err != nil {
+			log.Errorf("添加账单发生异常:%s", err)
 			api.InternalServerError("添加账单失败", ctx)
 		}
 		api.Ok(id, ctx)

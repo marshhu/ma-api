@@ -6,6 +6,8 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/marshhu/ma-frame/log"
+
 	"github.com/marshhu/ma-api/src/interface/ioc"
 	"github.com/marshhu/ma-api/src/router"
 	"github.com/marshhu/ma-frame/app"
@@ -18,6 +20,8 @@ import (
 func main() {
 	initConfig()
 	initDb()
+	initLog()
+	defer log.Sync()
 	ioc.InitIoc()
 	app := app.NewApp(app.AppConfig{
 		HostPort:     viper.GetInt("app.hostPort"),
@@ -71,4 +75,14 @@ func initDb() {
 		ConnMaxLifetime: viper.GetInt("db.connMaxLifetime"),
 	}
 	orm.Init(&config)
+}
+
+//初始化日志
+func initLog() {
+	log.Init(&log.LogSettings{
+		Path:        viper.GetString("log.path"),
+		FileName:    viper.GetString("log.fileName"),
+		Level:       viper.GetString("log.level"),
+		LogCategory: viper.GetString("log.logCategory"),
+	})
 }

@@ -5,6 +5,7 @@ import (
 	"github.com/marshhu/ma-api/src/application/user/ao"
 	"github.com/marshhu/ma-api/src/interface/api"
 	"github.com/marshhu/ma-api/src/interface/ioc"
+	"github.com/marshhu/ma-frame/log"
 )
 
 // @Summary 注册
@@ -30,6 +31,7 @@ func Register() gin.HandlerFunc {
 
 		id, err := ioc.DIContainer.UserAppService.Add(input)
 		if err != nil {
+			log.Errorf("注册用户发生异常:%s", err)
 			api.InternalServerError("注册用户失败", ctx)
 			return
 		}

@@ -6,6 +6,7 @@ import (
 	"github.com/marshhu/ma-api/src/application/user/ao"
 	"github.com/marshhu/ma-api/src/interface/api"
 	"github.com/marshhu/ma-api/src/interface/ioc"
+	"github.com/marshhu/ma-frame/log"
 	"github.com/spf13/viper"
 )
 
@@ -31,10 +32,12 @@ func Login() gin.HandlerFunc {
 		}
 
 		user := ioc.DIContainer.UserAppService.Get(input.UserName, input.Password)
+		log.Infof("%s登录密码是:%s", input.UserName, input.Password)
 		if user.ID > 0 {
 			token, err := jwt.GenToken(user.ID, user.Name, viper.GetString("jwt.secret"),
 				viper.GetInt("jwt.expireTime"))
 			if err != nil {
+				log.Error(err)
 				api.InternalServerError("生成token发生异常", ctx)
 				return
 			}

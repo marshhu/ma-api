@@ -3,7 +3,6 @@ module github.com/marshhu/ma-api
 go 1.15
 
 require (
-	git.code.oa.com/fip-team/rasse v1.2.11 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
 	github.com/denisenkom/go-mssqldb v0.9.0 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
@@ -20,7 +19,7 @@ require (
 	github.com/leodido/go-urn v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.4 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/marshhu/ma-frame v0.0.0-20210225021928-923bab454bab
+	github.com/marshhu/ma-frame v0.0.0-20210301070832-c7936e153da1
 	github.com/mitchellh/mapstructure v1.4.1 // indirect
 	github.com/pelletier/go-toml v1.8.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect

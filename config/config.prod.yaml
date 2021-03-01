@@ -19,3 +19,9 @@ jwt:
   secret: 3*&^HO*(^&987
   expireTime: 3600
 
+log:
+  path: ./logs
+  fileName: app.log
+  level: debug
+  logCategory: app
+

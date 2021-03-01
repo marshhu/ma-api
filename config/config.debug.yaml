@@ -22,3 +22,9 @@ jwt:
 test:
   userId: 1
   userName: admin
+
+log:
+  path: ./logs
+  fileName: app.log
+  level: debug
+  logCategory: app
