@@ -36,10 +36,11 @@ func AddBill() gin.HandlerFunc {
 		}
 		id, err := ioc.DIContainer.BillAppService.Add(input, user.UserName)
 		if err != nil {
+			api.Ok(api.Failed(-1, "添加账单失败"), ctx)
 			log.Errorf("添加账单发生异常:%s", err)
-			api.InternalServerError("添加账单失败", ctx)
+			return
 		}
-		api.Ok(id, ctx)
+		api.Ok(api.Success(id), ctx)
 	}
 }
 
@@ -62,6 +63,6 @@ func GetBillByUser() gin.HandlerFunc {
 			return
 		}
 		total, list := ioc.DIContainer.BillAppService.GetByUser(user.UserName, limit, offset)
-		api.Ok(api.PageResult{Total: total, Data: list}, ctx)
+		api.Ok(api.Success(api.PageResult{Total: total, Data: list}), ctx)
 	}
 }

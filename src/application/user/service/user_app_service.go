@@ -12,6 +12,13 @@ type UserAppService struct {
 	UserDomainService userDomainSrv.IUserDomainService `inject:"UserDomainService"`
 }
 
+func (s *UserAppService) GetById(userId int64) *ao.UserAo {
+	userDo := s.UserDomainService.GetById(userId)
+	var userAo ao.UserAo
+	utils.MapTo(userDo, &userAo)
+	return &userAo
+}
+
 func (s *UserAppService) Get(username string, password string) *ao.UserAo {
 	userDo := s.UserDomainService.Get(username, password)
 	var userAo ao.UserAo

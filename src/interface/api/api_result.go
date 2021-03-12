@@ -16,10 +16,12 @@ func NewApiResult(code int, msg string, data interface{}) *ApiResult {
 	}
 }
 
-func OK(data interface{}) *ApiResult {
+//成功
+func Success(data interface{}) *ApiResult {
 	return NewApiResult(0, "", data)
 }
 
-func Error(code int, msg string) *ApiResult {
+//失败
+func Failed(code int, msg string) *ApiResult {
 	return NewApiResult(code, msg, nil)
 }

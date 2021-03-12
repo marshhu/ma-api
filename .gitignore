@@ -2,3 +2,5 @@
 .idea/
 logs/
 *.exe
+docs/
+go.sum

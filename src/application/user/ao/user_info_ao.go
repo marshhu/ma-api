@@ -6,5 +6,4 @@ type UserInfoAo struct {
 	NickName string `json:"nickName"`
 	Avatar   string `json:"avatar"`
 	Gender   int64  `json:"gender"`
-	Token    string `json:"token"`
 }

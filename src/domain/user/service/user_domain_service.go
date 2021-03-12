@@ -10,6 +10,10 @@ type UserDomainService struct {
 	UserRepository repository.IUserRepository `inject:"UserRepository"`
 }
 
+func (s *UserDomainService) GetById(userId int64) *do.UserDo {
+	return s.UserQuery.GetById(userId)
+}
+
 func (s *UserDomainService) Get(username string, password string) *do.UserDo {
 	return s.UserQuery.Get(username, password)
 }

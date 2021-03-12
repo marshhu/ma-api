@@ -37,21 +37,13 @@ func Login() gin.HandlerFunc {
 			token, err := jwt.GenToken(user.ID, user.Name, viper.GetString("jwt.secret"),
 				viper.GetInt("jwt.expireTime"))
 			if err != nil {
+				api.Ok(api.Failed(-1, "生成token发生异常"), ctx)
 				log.Error(err)
-				api.InternalServerError("生成token发生异常", ctx)
 				return
 			}
-			var userInfo = ao.UserInfoAo{
-				ID:       user.ID,
-				Name:     user.Name,
-				NickName: user.NickName,
-				Gender:   user.Gender,
-				Avatar:   user.Avatar,
-				Token:    token,
-			}
-			api.Ok(userInfo, ctx)
+			api.Ok(api.Success(token), ctx)
 			return
 		}
-		api.Unauthorized("用户名或密码错误", ctx)
+		api.Ok(api.Failed(-1, "用户名或密码错误"), ctx)
 	}
 }
