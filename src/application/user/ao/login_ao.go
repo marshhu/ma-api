@@ -4,7 +4,7 @@ import "github.com/marshhu/ma-frame/utils"
 
 //登录实体
 type LoginAo struct {
-	UserName string `json:"nameName"`
+	UserName string `json:"username"`
 	Password string `json:"password"`
 }
 
