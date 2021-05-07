@@ -30,9 +30,9 @@ func Register() gin.HandlerFunc {
 
 		id, err := ioc.DIContainer.UserAppService.Add(input)
 		if err != nil {
-			api.InternalServerError("注册用户失败", ctx)
+			api.Ok(api.Failed("注册用户失败"), ctx)
 			return
 		}
-		api.Ok(id, ctx)
+		api.Ok(api.Success(id), ctx)
 	}
 }

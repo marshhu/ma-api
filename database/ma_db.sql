@@ -10,7 +10,7 @@ CREATE TABLE `bills` (
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `create_by` varchar(50) NOT NULL COMMENT '创建人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
@@ -28,4 +28,4 @@ CREATE TABLE `users`  (
   `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `uq_user_name`(`name`)
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci;
